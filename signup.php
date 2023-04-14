@@ -12,9 +12,10 @@
     </head>
     <body>
         <main id="mainholder">
-        <h1 id="signupheader">CREA IL GRUPPO</h1>
-        <form id="formheader" action="creazione_gruppo.php" method="POST">        
-            <input type="text" id="name-field" name="name" class="signup-form-field" placeholder="Nome gruppo" required ><br>
+        <h1 id="signupheader">SIGNUP</h1>
+        <form id="formheader" action="prova.php" method="POST">        
+            <input type="text" id="name-field" name="name" class="signup-form-field" placeholder="Nome" required ><br>
+            <input type="email"  id="email-field" name="email" class="signup-form-field" placeholder="Email" required><br>
             <input type="password" id="password-field" name="password" class="signup-form-field" placeholder="Password" required > <br>
             <input type="submit" value="Registrati" id="balena" >
         </form>
@@ -23,4 +24,7 @@
         
         </main>
     </body>
-</html>
+</html>
+
+
+

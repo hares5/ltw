@@ -28,10 +28,12 @@ if (mysqli_num_rows($result) == 1) {
         if (password_verify($password,$row["password"])) {
             // Login effettuato con successo
             session_start();
-           $_SESSION['user_id'] = $row['username'];
-          /*  header('Location: home.php');*/
+           $_SESSION['username'] = $row['username'];
+
+           header("Location: gruppi.php");
             echo("login effettuato");
             exit;
+
         } else {
             // Password errata
              echo("La password inserita non è corretta.");

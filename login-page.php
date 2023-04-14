@@ -4,26 +4,26 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login Gruppo</title>
+        <title>Login</title>
         <link rel="stylesheet" href="login-page.css">
        <!-- <script defer src="login-page.js"></script> -->
     </head>
 
     <body>
         <main id="main-holder">
-            <h1 id="login-header">LOGIN GRUPPO</h1>
+            <h1 id="login-header">LOGIN</h1>
             
             <div id="login-error-msg-holder">
                 <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
             </div>
 
-            <form id="login-form" action="login_gruppo.php" method="POST">
-                <input type="text" name="gruppo" id="nomegruppo" class="login-form-field" placeholder="Nome gruppo"><br>
-                <input type="password" name ="password_gruppo" id="password-field" class="login-form-field" placeholder="Password" ><br>
-                <input type="submit" value="Unisciti" id="login-form-submit"> <br>
+            <form id="login-form" action="login.php" method="POST">
+                <input type="text" name="email" id="email" class="login-form-field" placeholder="Email" ><br>
+                <input type="password" name ="password" id="password-field" class="login-form-field" placeholder="Password" ><br>
+                <input type="submit" value="Login" id="login-form-submit"> <br>
                 Non sei registrato?
                 <A HREF="signup.html">REGISTRATI</A>
             </form>
         </main>
     </body>
-</html>
+</html>

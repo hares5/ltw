@@ -1,0 +1,33 @@
+body {
+    background-color: bisque;
+    color: black;
+  }
+  
+  nav {
+    background-color: black;
+    color: bisque;
+    padding: 10px;
+  }
+  
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav ul li {
+    margin: 0 10px;
+  }
+  
+  nav ul li a {
+    color: bisque;
+    text-decoration: none;
+  }
+  
+  .container {
+    padding: 20px;
+  }
+  

@@ -22,12 +22,22 @@ $hash = password_hash($password, PASSWORD_BCRYPT);
 // Query SQL per inserire i dati nel database
 $sql = "INSERT INTO utenti (username, email, password)
 VALUES ('$username', '$email', '$hash')";
+$sql2="INSERT INTO gruppi(utente) VALUES ('$username')";
+
 if(strlen($password)<8){
     die("Password troppo breve");
 }
 else {
 if (mysqli_query($conn, $sql)) {
     $last_id = mysqli_insert_id($conn);
+    
+    echo "Registrazione completata con successo!";
+} else {
+    echo "Errore durante la registrazione: " . mysqli_error($conn);
+}
+if (mysqli_query($conn, $sql2)) {
+    $last_id = mysqli_insert_id($conn);
+    
     echo "Registrazione completata con successo!";
 } else {
     echo "Errore durante la registrazione: " . mysqli_error($conn);

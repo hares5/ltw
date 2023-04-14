@@ -13,10 +13,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <?php
          require "gruppi.php";
-
-        
+         
+       
         $username=$_SESSION["username"];
-        $gruppo = $gruppo1;
+        $gruppo = $gruppo3;
         ?>
 </head>
 <body>
@@ -27,9 +27,9 @@
         <?php echo $gruppo?>
         <ul>
         <l1><button class="btn btn-outline-secondary" id="crea_lista"><i class="fa fa-plus"></i> Crea nuova lista</button>
-        <form class="mt-2" id="lista" style="display: none;" action="update_liste.php" method="POST">
+        <form class="mt-2" id="lista" style="display: none;" action="update_liste3.php" method="POST">
         <input type="text" class="form-control" id="inputLista" name="nomelista" placeholder="Inserisci del testo">
-       
+        
         <input type="submit" value="Invia">
 
        
