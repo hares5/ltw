@@ -30,7 +30,7 @@ if (mysqli_num_rows($result) == 1) {
             session_start();
            $_SESSION['username'] = $row['username'];
 
-           header("Location: gruppi.php");
+           header('Location: gruppi.php');
             echo("login effettuato");
             exit;
 

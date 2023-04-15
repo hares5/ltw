@@ -29,7 +29,7 @@ if (mysqli_num_rows($result) == 1) {
             // Login effettuato con successo
             session_start();
            //$_SESSION['gruppo'] = $row['gruppo'];
-           
+           echo ("login effettuato");
            $_SESSION["username"];
            $user=$_SESSION["username"];
            $var = $_POST['gruppo'];
@@ -60,7 +60,7 @@ if (mysqli_num_rows($result) == 1) {
            // Esecuzione della query per modificare l'email dell'utente con id=1
            $sql = "UPDATE gruppi SET gruppo1 = '$var' WHERE utente='$user'";
            
-           if (mysqli_query($conn,$sql1)) {
+           if (mysqli_query($conn,$sql)) {
                echo "Modifica eseguita con successo";
            } else {
                echo "Errore durante la modifica: " . $conn->error;
