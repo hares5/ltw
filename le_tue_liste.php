@@ -65,9 +65,14 @@
            $id1=$row['lista1'];
            $sql2="SELECT nomelista from idliste where id ='$id1'";
     $result2=mysqli_query($conn,$sql2);
-    $row = mysqli_fetch_assoc($result2);
-            $lista1=$row["nomelista"];
-           echo $lista1;
+    if (mysqli_num_rows($result2) == 1) {
+        $row = mysqli_fetch_assoc($result2);
+                $lista1=$row["nomelista"];
+               echo $lista1;}
+               else{
+                echo "";
+               }
+           
             ?>
           </li>
           
@@ -95,9 +100,13 @@
            $id2=$row['lista2'];
            $sql2="SELECT nomelista from idliste where id ='$id2'";
     $result2=mysqli_query($conn,$sql2);
-    $row = mysqli_fetch_assoc($result2);
-            $lista2=$row["nomelista"];
-           echo $lista2;
+    if (mysqli_num_rows($result2) == 1) {
+        $row = mysqli_fetch_assoc($result2);
+                $lista2=$row["nomelista"];
+               echo $lista2;}
+               else{
+                echo "";
+               }
             ?>
 
            </li>
@@ -128,9 +137,13 @@
            $id3=$row['lista3'];
            $sql2="SELECT nomelista from idliste where id ='$id3'";
     $result2=mysqli_query($conn,$sql2);
-    $row = mysqli_fetch_assoc($result2);
-            $lista3=$row["nomelista"];
-           echo $lista3;
+    if (mysqli_num_rows($result2) == 1) {
+        $row = mysqli_fetch_assoc($result2);
+                $lista3=$row["nomelista"];
+               echo $lista3;}
+               else{
+                echo "";
+               }
             ?>
           </li></li>
           <!-- Aggiungi ulteriori elementi della lista a seconda dei gruppi dell'utente -->
