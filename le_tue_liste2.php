@@ -33,20 +33,37 @@
 
        
 </form>
-    </div></l1>
+</div></l1>
         <l1><button class="btn btn-outline-primary"><i class="fa fa-user"></i><?php echo $username?></button></l1>
         </ul>
     </nav>
     <!-- Contenitore principale -->
   <div class="container-fluid">
-
+ 
     <!-- Riga della griglia -->
     <div class="row">
     <div class="col-md-3">
         <h3>Le tue liste:</h3>
         <ul class="list-group">
-          <li class="list-group-item">
-            <?php
+        <?php
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "sito_web";
+    
+            $conn = mysqli_connect($servername, $username, $password, $dbname);
+        /*  $data1 = $_GET['data1'];
+            $gruppo=$data1;*/
+            
+            $sql = "SELECT lista1 FROM liste WHERE gruppo = '$gruppo'";
+
+            $result = mysqli_query($conn, $sql);
+           // echo ($result);
+           $row = mysqli_fetch_assoc($result);
+           $id1=$row['lista1'];?>
+          <li class="list-group-item"> <a href="lista.php?valore=<?php echo $id1;?>">
+          
+          <?php
             $servername = "localhost";
             $username = "root";
             $password = "";
@@ -71,15 +88,32 @@
                else{
                 echo "";
                }
+           
             ?>
+            </a>
           </li>
           
 
 
 
 
+          <?php
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "sito_web";
+    
+            $conn = mysqli_connect($servername, $username, $password, $dbname);
+        /*  $data1 = $_GET['data1'];
+            $gruppo=$data1;*/
+            
+            $sql = "SELECT lista2 FROM liste WHERE gruppo = '$gruppo'";
 
-          <li class="list-group-item">
+            $result = mysqli_query($conn, $sql);
+           // echo ($result);
+           $row = mysqli_fetch_assoc($result);
+           $id2=$row['lista2'];?>
+          <li class="list-group-item"><a href="lista.php?valore=<?php echo $id2;?>">
           <?php
             $servername = "localhost";
             $username = "root";
@@ -106,7 +140,7 @@
                 echo "";
                }
             ?>
-
+    </a>
            </li>
 
 
@@ -115,8 +149,23 @@
 
 
 
+           <?php
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "sito_web";
+    
+            $conn = mysqli_connect($servername, $username, $password, $dbname);
+        /*  $data1 = $_GET['data1'];
+            $gruppo=$data1;*/
+            
+            $sql = "SELECT lista3 FROM liste WHERE gruppo = '$gruppo'";
 
-          <li class="list-group-item"> 
+            $result = mysqli_query($conn, $sql);
+           // echo ($result);
+           $row = mysqli_fetch_assoc($result);
+           $id3=$row['lista3'];?>
+          <li class="list-group-item"> <a href="lista.php?valore=<?php echo $id3;?>">
           <?php
             $servername = "localhost";
             $username = "root";
@@ -143,6 +192,7 @@
                 echo "";
                }
             ?>
+            </a>
           </li></li>
           <!-- Aggiungi ulteriori elementi della lista a seconda dei gruppi dell'utente -->
         </ul>
