@@ -19,15 +19,22 @@
         <a class="navbar-brand" href="home_page.html">
           <img src="logo.png" alt="TogetherList Logo" height="50" width="70">
         </a>
-        <ul>
+        <ul class="ml-auto">
         <l1><a href="crea_gruppo.php"><button class="btn btn-outline-secondary"><i class="fa fa-plus"></i> Crea nuovo gruppo</button></a></l1>
         <l1><a  href="pagina_login_gruppo.php"> <button class="btn btn-outline-secondary"><i class="fa fa-plus"></i> Unisciti ad un gruppo</button></a></l1>
-        <l1></l1><button class="btn btn-outline-primary"><i class="fa fa-user"></i> 
+        <l1> 
+        <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" id="dropdownbutton" aria-expanded="false"><i class="fa fa-user"></i> 
         <?php
         session_start();
         $user=$_SESSION["username"];
         $_SESSION["gruppo"]="";
-        echo $user; ?></button></l1>
+        echo $user; ?><span class="caret"></span></button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownbutton">
+            <l1 class="dropdown-item" href="">Gestisci gruppi</l1>
+            <l1 class="dropdown-item" href="index.php"><i class="fa fa-sign-out"></i>Effettua logout</l1>
+        </ul>
+        </div>
+        </l1>
         </ul>
     </nav>
     <div class="container mt-5">
