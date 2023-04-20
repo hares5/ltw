@@ -1,0 +1,8 @@
+.container-fluid .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .list-group-item {
+    flex-basis: 33.33%;
+    max-width: 33.33%;
+  }

@@ -4,7 +4,6 @@
      <!-- Metatag e link al CSS -->
     <meta charset="UTF-8">
     <title>TogetherList</title>
-    <link rel="stylesheet" href="homestyle.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
@@ -32,9 +31,9 @@
         $user=$_SESSION["username"];
         $_SESSION["gruppo"]="";
         echo $user; ?><span class="caret"></span></button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownbutton">
+        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownbutton">
             <l1><a class="dropdown-item" href="">Gestisci gruppi</a></l1>
-            <l1><a class="dropdown-item" href="index.php"><i class="fa fa-sign-out"></i>Effettua logout</a></l1>
+            <l1><a class="dropdown-item" href="logout.php"><i class="fa fa-sign-out"></i>Effettua logout</a></l1>
         </ul>
         </div>
         </l1>
@@ -79,7 +78,7 @@
                     $row = mysqli_fetch_assoc($result); 
                     $gruppo2=$row['gruppo2']; 
                    ?>
-            <li class="list-group-item" id="2" ><a href="le_tue_liste2.php">
+            <li class="list-group-item" id="2"><a href="le_tue_liste2.php">
            <?php
                     echo $gruppo2; 
                     ?>
@@ -104,12 +103,42 @@
                     echo $gruppo3; 
                     ?>
         
-            </a></li>
+        </a></li>
             <!-- Aggiungi altri elementi della lista per i gruppi a cui l'utente è iscritto -->
         </ul>
     </div>
         <h1> 
          <?php echo $_SESSION["gruppo"]; ?> </h1>
-         
+    <script>
+        
+        $(".list-group-item").hover(mouseEnter, mouseLeave);
+        function mouseEnter(){
+            var elem = $(this).text().trim();
+            //console.log("text:"+elem+';');
+            if (elem != ''){
+                $(this).append("<i class='fa fa-trash-o float-right'></i>");
+                $(this).css("background", "lightgrey");
+                
+                $(".fa").click(function(){
+
+                    $.ajax({
+                        url: "elimina_gruppo.php",
+                        type:'POST',
+                        data:{gruppo:elem}, // il nome del file PHP che vuoi eseguire
+                        
+                        success: function(result){
+                            //alert(result)
+                            location.reload() // mostra l'output del codice PHP
+                        }
+                    });
+                });
+            }
+        };
+        function mouseLeave(){
+            $(this).css("background", "white");
+            $("i").remove();
+        }
+        
+    </script>
 </body>
 </html>

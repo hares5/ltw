@@ -6,21 +6,19 @@ $dbname = "sito_web";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 $id = $_GET['valore'];
-header("Location: lista.php?valore=$id");
-echo $id;
+header("Location: le_tue_liste2.php");
+
 // Controllo se la connessione al database è riuscita
 if (!$conn) {
     die("Connessione al database fallita: " . mysqli_connect_error());
 }
 
 $elemento = mysqli_real_escape_string($conn, $_POST['elemento']);
-$quantita= mysqli_real_escape_string($conn, $_POST['quantita']);
-$categoria= mysqli_real_escape_string($conn, $_POST['categoria']);
 
 echo $elemento;
 
 
-$sql="INSERT INTO lista_elementi(id,nome_elemento,categoria,quantita) VALUES ('$id','$elemento','$categoria','$quantita')";
+$sql="INSERT INTO lista_elementi(id,nome_elemento) VALUES ('$id','$elemento')";
 if (mysqli_query($conn, $sql)) {
     $last_id = mysqli_insert_id($conn);
     
@@ -28,5 +26,3 @@ if (mysqli_query($conn, $sql)) {
 } else {
     echo "Errore durante la registrazione: " . mysqli_error($conn);
 }
-
-?>

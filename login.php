@@ -46,5 +46,4 @@ if (mysqli_num_rows($result) == 1) {
 
 // Chiusura della connessione al database
 mysqli_close($conn);
-header(("location:gruppi.php"));
 ?>

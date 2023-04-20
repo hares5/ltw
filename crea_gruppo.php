@@ -19,8 +19,8 @@
             <input type="submit" value="Registrati" id="balena" >
         </form>
         Sei gia registrato?
-        <a HREF="login-page.html">LOGIN</a>
+        <a HREF="pagina_login_gruppo.php">LOGIN</a>
         
         </main>
     </body>
-</html>
+</html>

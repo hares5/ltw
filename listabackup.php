@@ -41,8 +41,7 @@
 	<h1 id="list">Lista elementi</h1> 
     <h2> <a href="gruppi.php" > TORNA AI TUOI GRUPPI</a></h2> 
 	<label for="sort-by">Ordina per:</label>
-	<select name="sort-by" id="sort-by" onchange="ordinaElementi();">
-
+<select name="sort-by" id="sort-by">
   <option value="nome">nome</option>
   <option value="categoria">categoria</option>
   <option value="data">Data di aggiunta</option>
@@ -51,7 +50,9 @@
 	<table>
 		<thead>
 			<tr>
-				
+				<th>Nome Elemento</th>
+				<th>Quantita</th>
+				<th>Categoria</th>
 				<select id="categoria2">
   <option value="">Tutte le categorie</option>
   <option value="opzione1">Opzione 1</option>
@@ -62,17 +63,39 @@
 			</tr>
 		</thead>
 		
-		<tbody >
-    
-</tbody>
+		<tbody id="lista" >
+			<?php
+				// Connessione al database
+				$host = "localhost";
+				$user = "root";
+				$password = "";
+				$dbname = "sito_web";
+				$conn = mysqli_connect($host, $user, $password, $dbname);
+				if (!$conn) {
+					die("Connessione al database fallita: " . mysqli_connect_error());
+				}
 
-<div id="lista">
-	
-    <?php 
-	$sort_by = '';
-	include 'ordina_elementi.php'; 
-	?>
-</div>
+				// Query per recuperare la lista degli elementi
+				$sql = "SELECT * FROM lista_elementi WHERE id='$id1'";
+				$result = mysqli_query($conn, $sql);
+
+				// Ciclo sui risultati della query e stampo la lista degli elementi
+				while ($row = mysqli_fetch_assoc($result)) {
+					$elemento = $row["nome_elemento"];
+					$quantita = $row["quantita"];
+					$categoria=$row["categoria"];
+
+					echo "<tr>";
+					echo "<td class='c'>" . $elemento . "</td>";
+					echo "<td class='c'>" . $quantita . "</td>";
+					echo "<td class='c'>" . $categoria . "</td>";
+					echo "</tr>";
+				}
+
+				// Chiusura della connessione al database
+				mysqli_close($conn);
+			?>
+		</tbody>
 			
 	</table>
 			</span>
@@ -130,37 +153,7 @@
         }
       });
     });
-	
-	$('#sort-by').change(function(){
-		var selectedData = $(this).val();
-		$.ajax({
-			type: "POST",
-			url: "ordina_elementi.php",
-			data: {'selectedData':selectedData,id:<?php echo $id1;?>},
-			success: function(result){
-    $("#lista").html(result);
-	$("#tab").hide();
-	
-
-}
-		})
-	})
   });
-  function ordinaElementi() {
-	var selectedData = $(this).val();
-   // var sort_by = document.getElementById("sort-by").value;
-    $.ajax({
-        url: "ordina_elementi.php",
-        type: 'POST',
-        data: {'selectedData':selectedData,id:<?php echo $id1;?>},
-        success: function(data) {
-			$("#lista").append(data);
-          //  $('#lista').html(data);
-			alert(data);
-        }
-    });
-}
-
 
 
 </script>
@@ -171,3 +164,4 @@
 
 </body>
 </html>
+

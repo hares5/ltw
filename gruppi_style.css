@@ -1,0 +1,6 @@
+.delete{
+    display: none;
+}
+.list-group-item:hover .delete{
+    display: block;
+}

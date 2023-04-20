@@ -16,14 +16,14 @@
         
         $username=$_SESSION["username"];
         $gruppo = $gruppo2;
+        $lista1=NULL;
+        $lista2=NULL;
+        $lista3=NULL;
         ?>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg" id="top_bar">
-        <a class="navbar-brand" href="home_page.html">
-          <img src="logo.png" alt="TogetherList Logo" height="50" width="70">
-        </a>
-        <?php echo $gruppo?>
+        
         <ul>
         <l1><button class="btn btn-outline-secondary" id="crea_lista"><i class="fa fa-plus"></i> Crea nuova lista</button>
         <form class="mt-2" id="lista" style="display: none;" action="update_liste2.php" method="POST">
@@ -34,213 +34,381 @@
        
 </form>
 </div></l1>
-        <l1><button class="btn btn-outline-primary"><i class="fa fa-user"></i><?php echo $username?></button></l1>
+        
         </ul>
     </nav>
     <!-- Contenitore principale -->
-  <div class="container-fluid">
+    </nav>
+    <!-- Contenitore principale -->
+    <div class="container-fluid">
  
-    <!-- Riga della griglia -->
-    <div class="row">
-    <div class="col-md-3">
-        <h3>Le tue liste:</h3>
-        <ul class="list-group">
+ <!-- Riga della griglia -->
+ <div class="row">
+ <div class="col-md-3">
+     <h3>Le tue liste:</h3>
+     <ul class="list-group">
+     <?php
+         $servername = "localhost";
+         $username = "root";
+         $password = "";
+         $dbname = "sito_web";
+ 
+         $conn = mysqli_connect($servername, $username, $password, $dbname);
+     /*  $data1 = $_GET['data1'];
+         $gruppo=$data1;*/
+         
+         $sql = "SELECT lista1 FROM liste WHERE gruppo = '$gruppo'";
+
+         $result = mysqli_query($conn, $sql);
+        // echo ($result);
+        $row = mysqli_fetch_assoc($result);
+        $id1=$row['lista1'];?>
+       <li class="list-group-item"> <a href="lista.php?valore=<?php echo $id1;?>">
+       
+       <?php
+         $servername = "localhost";
+         $username = "root";
+         $password = "";
+         $dbname = "sito_web";
+ 
+         $conn = mysqli_connect($servername, $username, $password, $dbname);
+     /*  $data1 = $_GET['data1'];
+         $gruppo=$data1;*/
+         
+         $sql = "SELECT lista1 FROM liste WHERE gruppo = '$gruppo'";
+
+         $result = mysqli_query($conn, $sql);
+        // echo ($result);
+        $row = mysqli_fetch_assoc($result);
+        $id1=$row['lista1'];
+        $sql2="SELECT nomelista from idliste where id ='$id1'";
+ $result2=mysqli_query($conn,$sql2);
+ if (mysqli_num_rows($result2) == 1) {
+     $row = mysqli_fetch_assoc($result2);
+             $lista1=$row["nomelista"];
+            echo $lista1;}
+            else{
+             echo "";
+            }
+        
+         ?>
+         </a>
+       </li>
+       
+
+
+
+
+       <?php
+         $servername = "localhost";
+         $username = "root";
+         $password = "";
+         $dbname = "sito_web";
+ 
+         $conn = mysqli_connect($servername, $username, $password, $dbname);
+     /*  $data1 = $_GET['data1'];
+         $gruppo=$data1;*/
+         
+         $sql = "SELECT lista2 FROM liste WHERE gruppo = '$gruppo'";
+
+         $result = mysqli_query($conn, $sql);
+        // echo ($result);
+        $row = mysqli_fetch_assoc($result);
+        $id2=$row['lista2'];?>
+       <li class="list-group-item"><a href="lista.php?valore=<?php echo $id2;?>">
+       <?php
+         $servername = "localhost";
+         $username = "root";
+         $password = "";
+         $dbname = "sito_web";
+ 
+         $conn = mysqli_connect($servername, $username, $password, $dbname);
+     /*  $data1 = $_GET['data1'];
+         $gruppo=$data1;*/
+         
+         $sql = "SELECT lista2 FROM liste WHERE gruppo = '$gruppo'";
+
+         $result = mysqli_query($conn, $sql);
+        // echo ($result);
+        $row = mysqli_fetch_assoc($result);
+        $id2=$row['lista2'];
+        $sql2="SELECT nomelista from idliste where id ='$id2'";
+ $result2=mysqli_query($conn,$sql2);
+ if (mysqli_num_rows($result2) == 1) {
+     $row = mysqli_fetch_assoc($result2);
+             $lista2=$row["nomelista"];
+            echo $lista2;}
+            else{
+             echo "";
+            }
+         ?>
+ </a>
+        </li>
+
+
         <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "sito_web";
-    
-            $conn = mysqli_connect($servername, $username, $password, $dbname);
-        /*  $data1 = $_GET['data1'];
-            $gruppo=$data1;*/
-            
-            $sql = "SELECT lista1 FROM liste WHERE gruppo = '$gruppo'";
+         $servername = "localhost";
+         $username = "root";
+         $password = "";
+         $dbname = "sito_web";
+ 
+         $conn = mysqli_connect($servername, $username, $password, $dbname);
+     /*  $data1 = $_GET['data1'];
+         $gruppo=$data1;*/
+         
+         $sql = "SELECT lista3 FROM liste WHERE gruppo = '$gruppo'";
 
-            $result = mysqli_query($conn, $sql);
-           // echo ($result);
-           $row = mysqli_fetch_assoc($result);
-           $id1=$row['lista1'];?>
-          <li class="list-group-item"> <a href="lista.php?valore=<?php echo $id1;?>">
-          
-          <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "sito_web";
-    
-            $conn = mysqli_connect($servername, $username, $password, $dbname);
-        /*  $data1 = $_GET['data1'];
-            $gruppo=$data1;*/
-            
-            $sql = "SELECT lista1 FROM liste WHERE gruppo = '$gruppo'";
+         $result = mysqli_query($conn, $sql);
+        // echo ($result);
+        $row = mysqli_fetch_assoc($result);
+        $id3=$row['lista3'];?>
+       <li class="list-group-item"> <a href="lista.php?valore=<?php echo $id3;?>">
+       <?php
+         $servername = "localhost";
+         $username = "root";
+         $password = "";
+         $dbname = "sito_web";
+ 
+         $conn = mysqli_connect($servername, $username, $password, $dbname);
+     /*  $data1 = $_GET['data1'];
+         $gruppo=$data1;*/
+         
+         $sql = "SELECT lista3 FROM liste WHERE gruppo = '$gruppo'";
 
-            $result = mysqli_query($conn, $sql);
-           // echo ($result);
-           $row = mysqli_fetch_assoc($result);
-           $id1=$row['lista1'];
-           $sql2="SELECT nomelista from idliste where id ='$id1'";
-    $result2=mysqli_query($conn,$sql2);
-    if (mysqli_num_rows($result2) == 1) {
-        $row = mysqli_fetch_assoc($result2);
-                $lista1=$row["nomelista"];
-               echo $lista1;}
-               else{
-                echo "";
-               }
+         $result = mysqli_query($conn, $sql);
+        // echo ($result);
+        $row = mysqli_fetch_assoc($result);
+        $id3=$row['lista3'];
+        $sql2="SELECT nomelista from idliste where id ='$id3'";
+ $result2=mysqli_query($conn,$sql2);
+ if (mysqli_num_rows($result2) == 1) {
+    $row = mysqli_fetch_assoc($result2);
+            $lista3=$row["nomelista"];
+           echo $lista3;}
+           else{
+            echo "";
+           }
            
-            ?>
-            </a>
-          </li>
-          
-
-
-
-
-          <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "sito_web";
-    
-            $conn = mysqli_connect($servername, $username, $password, $dbname);
-        /*  $data1 = $_GET['data1'];
-            $gruppo=$data1;*/
-            
-            $sql = "SELECT lista2 FROM liste WHERE gruppo = '$gruppo'";
-
-            $result = mysqli_query($conn, $sql);
-           // echo ($result);
-           $row = mysqli_fetch_assoc($result);
-           $id2=$row['lista2'];?>
-          <li class="list-group-item"><a href="lista.php?valore=<?php echo $id2;?>">
-          <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "sito_web";
-    
-            $conn = mysqli_connect($servername, $username, $password, $dbname);
-        /*  $data1 = $_GET['data1'];
-            $gruppo=$data1;*/
-            
-            $sql = "SELECT lista2 FROM liste WHERE gruppo = '$gruppo'";
-
-            $result = mysqli_query($conn, $sql);
-           // echo ($result);
-           $row = mysqli_fetch_assoc($result);
-           $id2=$row['lista2'];
-           $sql2="SELECT nomelista from idliste where id ='$id2'";
-    $result2=mysqli_query($conn,$sql2);
-    if (mysqli_num_rows($result2) == 1) {
-        $row = mysqli_fetch_assoc($result2);
-                $lista2=$row["nomelista"];
-               echo $lista2;}
-               else{
-                echo "";
-               }
-            ?>
-    </a>
-           </li>
-
-
-
-
-
-
-
-           <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "sito_web";
-    
-            $conn = mysqli_connect($servername, $username, $password, $dbname);
-        /*  $data1 = $_GET['data1'];
-            $gruppo=$data1;*/
-            
-            $sql = "SELECT lista3 FROM liste WHERE gruppo = '$gruppo'";
-
-            $result = mysqli_query($conn, $sql);
-           // echo ($result);
-           $row = mysqli_fetch_assoc($result);
-           $id3=$row['lista3'];?>
-          <li class="list-group-item"> <a href="lista.php?valore=<?php echo $id3;?>">
-          <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "sito_web";
-    
-            $conn = mysqli_connect($servername, $username, $password, $dbname);
-        /*  $data1 = $_GET['data1'];
-            $gruppo=$data1;*/
-            
-            $sql = "SELECT lista3 FROM liste WHERE gruppo = '$gruppo'";
-
-            $result = mysqli_query($conn, $sql);
-           // echo ($result);
-           $row = mysqli_fetch_assoc($result);
-           $id3=$row['lista3'];
-           $sql2="SELECT nomelista from idliste where id ='$id3'";
-    $result2=mysqli_query($conn,$sql2);
-    if (mysqli_num_rows($result2) == 1) {
-        $row = mysqli_fetch_assoc($result2);
-                $lista3=$row["nomelista"];
-               echo $lista3;}
-               else{
-                echo "";
-               }
-            ?>
-            </a>
-          </li></li>
-          <!-- Aggiungi ulteriori elementi della lista a seconda dei gruppi dell'utente -->
-        </ul>
-    </div>
-    <div class="col-md-9">
-        <h3>Lista X:</h3>
-        <ul class="list-group">
+         ?>
+         </a>
+       </li></li>
+       <!-- Aggiungi ulteriori elementi della lista a seconda dei gruppi dell'utente -->
+     </ul>
+ </div>
+ <div class="col-md-3">
+     <h3>Lista <?php echo $lista1 ?>:</h3>
+     <ul class="list-group">
+     <form id="elementi" action="ae2.php?valore=<?php echo $id1;?>" method="POST">
             <l1>
                 <button class="btn btn-outline-danger" id="add_elem"><i class="fa fa-plus"></i> Aggiungi nuovo elemento</button>
-            <div class="mt-3" id="contenitoreInput" style="display: none;">
-                <input type="text" class="form-control" id="inputTesto" placeholder="Inserisci del testo">
+            <div class="mt-3" id="contenitoreInput" style="display:block ;">
+                <input type="text" class="form-control" name="elemento" id="inputTesto" placeholder="Inserisci del testo">
+                
                 <input type="submit" value="Invia">
-            </div></l1>
-          <li class="list-group-item">Elem1</li>
-          <li class="list-group-item">Elem 2</li>
-          <li class="list-group-item">Elem 3</li>
-          <!-- Aggiungi ulteriori elementi della lista a seconda delle liste dell'utente -->
-        </ul>
-      </div>
-    </div> <!-- Fine della riga della griglia -->
+</form>
+         <li class="list-group-item"><?php $servername = "localhost"; $username = "root"; $password = "";$dbname = "sito_web";
+     $sql2 = "SELECT * FROM lista_elementi WHERE id='$id1'";
+    $result = mysqli_query($conn, $sql2);
+    $row = mysqli_fetch_assoc($result);
+   
+    if (mysqli_num_rows($result)<1 ){
+        echo "";
+    }else{
+        $elemento1=$row["nome_elemento"]; 
+        echo $elemento1;
+    }
+          
+    ?> </li>
+
+       <li class="list-group-item"><?php $servername = "localhost"; $username = "root"; $password = "";$dbname = "sito_web";
+     $sql2 = "SELECT * FROM lista_elementi WHERE id='$id1'";
+    $result = mysqli_query($conn, $sql2);
+    $row = mysqli_fetch_array($result);
+     mysqli_data_seek($result, 1);
+    $second_row = mysqli_fetch_array($result);
+    
+    if (mysqli_num_rows($result)<2 ){
+        echo "";
+    }else{
+        $elemento2=$second_row["nome_elemento"]; 
+        echo $elemento2;
+    }
+            
+    ?> </li>
+
+       <li class="list-group-item"><?php $servername = "localhost"; $username = "root"; $password = "";$dbname = "sito_web";
+     $sql2 = "SELECT * FROM lista_elementi WHERE id='$id1'";
+    $result = mysqli_query($conn, $sql2);
+    mysqli_data_seek($result, 2);
+
+    $third_row = mysqli_fetch_assoc($result);
+    mysqli_data_seek($result, 2);
+    $second_row = mysqli_fetch_array($result);
+    if (mysqli_num_rows($result) <3){
+        echo "";
+    }else{
+        $elemento3=$second_row["nome_elemento"]; 
+        echo $elemento3;
+    }
+?>
+</li>
+       <!-- Aggiungi ulteriori elementi della lista a seconda delle liste dell'utente -->
+     </ul>
+   </div>
+   <div class="col-md-3">
+     <h3>Lista <?php echo $lista2 ?>:</h3>
+     <ul class="list-group">
+     <form id="elementi" action="ae2.php?valore=<?php echo $id2;?>" method="POST">
+            <l1>
+                <button class="btn btn-outline-danger" id="add_elem"><i class="fa fa-plus"></i> Aggiungi nuovo elemento</button>
+            <div class="mt-3" id="contenitoreInput" style="display:block ;">
+                <input type="text" class="form-control" name="elemento" id="inputTesto" placeholder="Inserisci del testo">
+                
+                <input type="submit" value="Invia">
+</form>
+         <li class="list-group-item"><?php $servername = "localhost"; $username = "root"; $password = "";$dbname = "sito_web";
+     $sql2 = "SELECT * FROM lista_elementi WHERE id='$id2'";
+    $result = mysqli_query($conn, $sql2);
+    $row = mysqli_fetch_assoc($result);
+   
+    if (mysqli_num_rows($result)<1 ){
+        echo "";
+    }else{
+        $elemento1=$row["nome_elemento"]; 
+        echo $elemento1;
+    }
+          
+    ?> </li>
+
+       <li class="list-group-item"><?php $servername = "localhost"; $username = "root"; $password = "";$dbname = "sito_web";
+     $sql2 = "SELECT * FROM lista_elementi WHERE id='$id2'";
+    $result = mysqli_query($conn, $sql2);
+    $row = mysqli_fetch_array($result);
+     mysqli_data_seek($result, 1);
+    $second_row = mysqli_fetch_array($result);
+    
+    if (mysqli_num_rows($result)<2 ){
+        echo "";
+    }else{
+        $elemento2=$second_row["nome_elemento"]; 
+        echo $elemento2;
+    }
+            
+    ?> </li>
+
+       <li class="list-group-item"><?php $servername = "localhost"; $username = "root"; $password = "";$dbname = "sito_web";
+     $sql2 = "SELECT * FROM lista_elementi WHERE id='$id2'";
+    $result = mysqli_query($conn, $sql2);
+    mysqli_data_seek($result, 2);
+
+    $third_row = mysqli_fetch_assoc($result);
+     
+    $second_row = mysqli_fetch_array($result);
+    if (mysqli_num_rows($result)<3 ){
+        echo "";
+    }else{
+        $elemento3=$third_row["nome_elemento"]; 
+        echo $elemento3;
+    }
+    
+    ?>  </li>
+       <!-- Aggiungi ulteriori elementi della lista a seconda delle liste dell'utente -->
+     </ul>
+   </div>
+   <div class="col-md-3">
+     <h3>Lista <?php echo $lista3 ?>:</h3>
+     <ul class="list-group">
+     <form id="elementi" action="ae2.php?valore=<?php echo $id3;?>" method="POST">
+            <l1>
+                <button class="btn btn-outline-danger" id="add_elem"><i class="fa fa-plus"></i> Aggiungi nuovo elemento</button>
+            <div class="mt-3" id="contenitoreInput" style="display:block ;">
+                <input type="text" class="form-control" name="elemento" id="inputTesto" placeholder="Inserisci del testo">
+                
+                <input type="submit" value="Invia">
+</form>
+         <li class="list-group-item"><?php $servername = "localhost"; $username = "root"; $password = "";$dbname = "sito_web";
+     $sql2 = "SELECT * FROM lista_elementi WHERE id='$id3'";
+    $result = mysqli_query($conn, $sql2);
+    $row = mysqli_fetch_assoc($result);
+   
+    if (mysqli_num_rows($result)<1 ){
+        echo "";
+    }else{
+        $elemento1=$row["nome_elemento"]; 
+        echo $elemento1;
+    }
+          
+    ?> </li>
+
+       <li class="list-group-item"><?php $servername = "localhost"; $username = "root"; $password = "";$dbname = "sito_web";
+     $sql2 = "SELECT * FROM lista_elementi WHERE id='$id3'";
+    $result = mysqli_query($conn, $sql2);
+    $row = mysqli_fetch_array($result);
+     mysqli_data_seek($result, 1);
+    $second_row = mysqli_fetch_array($result);
+    
+    if (mysqli_num_rows($result)<2 ){
+        echo "";
+    }else{
+        $elemento2=$second_row["nome_elemento"]; 
+        echo $elemento2;
+    }
+            
+    ?> </li>
+
+       <li class="list-group-item"><?php $servername = "localhost"; $username = "root"; $password = "";$dbname = "sito_web";
+     $sql2 = "SELECT * FROM lista_elementi WHERE id='$id3'";
+    $result = mysqli_query($conn, $sql2);
+    mysqli_data_seek($result, 2);
+
+    $third_row = mysqli_fetch_assoc($result);
+     
+    $second_row = mysqli_fetch_array($result);
+    if (mysqli_num_rows($result)<3 ){
+        echo "";
+    }else{
+        $elemento3=$third_row["nome_elemento"]; 
+        echo $elemento3;
+    }
+?>
+</li>
+       
+       <!-- Aggiungi ulteriori elementi della lista a seconda delle liste dell'utente -->
+     </ul>
+   </div>
+ </div> <!-- Fine della riga della griglia -->
 
 </div> <!-- Fine del contenitore principale -->
- 
+
 
 <div class="navbar navbar-fixed-bottom">
-    <footer class="footer">
-        <h2>About TogetherList</h2>
-        <p>TogetherList is a social networking platform designed to connect people with similar interests and facilitate real-life interactions. Our mission is to bring people together and build stronger communities.</p>
-    </footer>
+ <footer class="footer">
+     <h2>About TogetherList</h2>
+     <p>TogetherList is a social networking platform designed to connect people with similar interests and facilitate real-life interactions. Our mission is to bring people together and build stronger communities.</p>
+ </footer>
 </div>
 <script>
-        document.getElementById("add_elem").addEventListener('click', function ()  {
-            var contenitoreInput = document.getElementById('contenitoreInput');
-            if (contenitoreInput.style.display == 'none') {
-                contenitoreInput.style.display = 'block';
-            } else {
-                contenitoreInput.style.display = 'none';
-            }
-        });
-        document.getElementById("crea_lista").addEventListener('click', function ()  {
-            var lista = document.getElementById('lista');
-            if (lista.style.display == 'none') {
-                lista.style.display = 'block';
-            } else {
-                lista.style.display = 'none';
-            }
-        });
-    </script>
+     document.getElementById("add_elem").addEventListener('click', function ()  {
+         var contenitoreInput = document.getElementById('contenitoreInput');
+         if (contenitoreInput.style.display == 'none') {
+             contenitoreInput.style.display = 'block';
+         } else {
+             contenitoreInput.style.display = 'none';
+         }
+     });
+     document.getElementById("crea_lista").addEventListener('click', function ()  {
+         var lista = document.getElementById('lista');
+         if (lista.style.display == 'none') {
+             lista.style.display = 'block';
+         } else {
+             lista.style.display = 'none';
+         }
+     });
+ </script>
+
     
+ 
+ 
+ 
 </body>
 </html>

@@ -8,6 +8,6 @@ session_unset();
 session_destroy();
 
 // reindirizza alla pagina di login
-header("Location: homepage.html");
+header("Location: index.php");
 exit; // assicura che il codice successivo non venga eseguito
 ?>

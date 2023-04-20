@@ -45,7 +45,6 @@ if (mysqli_query($conn, $sql2)) {
 }
 
 mysqli_close($conn);
-header("location:login-page.php");
 ?>
 
 
