@@ -30,7 +30,35 @@ if ($sort_by == 'categoria') {
 $result = mysqli_query($conn, $sql);
 
 ?>
-<table id="tab">
+<span class ="lista">
+	<h1 id="list">Lista elementi</h1> 
+    <h2> <a href="gruppi.php" > TORNA AI TUOI GRUPPI</a></h2> 
+	<label for="sort-by">Ordina per:</label>
+	<select name="sort-by" id="sort-by" onchange="ordinaElementi();">
+
+  <option value="nome">nome</option>
+  <option value="categoria">categoria</option>
+  <option value="data">Data di aggiunta</option>
+</select>
+
+	<table>
+		<thead>
+			<tr>
+				
+				<select id="categoria2">
+  <option value="">Tutte le categorie</option>
+  <option value="opzione1">Opzione 1</option>
+  <option value="opzione2">Opzione 2</option>
+  <option value="opzione3">Opzione 3</option>
+</select>
+</span>
+			</tr>
+		</thead>
+		
+		<tbody >
+    
+</tbody>
+<table class="tab">
     <thead>
         <tr>
             <th>Nome Elemento</th>

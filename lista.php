@@ -37,7 +37,8 @@
 
 </ul>
     </div>
-    <span class ="lista">
+	<span class ="lista"></span>
+  <?php /*<span class ="lista">
 	<h1 id="list">Lista elementi</h1> 
     <h2> <a href="gruppi.php" > TORNA AI TUOI GRUPPI</a></h2> 
 	<label for="sort-by">Ordina per:</label>
@@ -58,15 +59,15 @@
   <option value="opzione2">Opzione 2</option>
   <option value="opzione3">Opzione 3</option>
 </select>
-
+</span>
 			</tr>
 		</thead>
 		
 		<tbody >
     
-</tbody>
+</tbody>*/?>
 
-<div id="lista">
+<div class="l1">
 	
     <?php 
 	$sort_by = '';
@@ -138,8 +139,9 @@
 			url: "ordina_elementi.php",
 			data: {'selectedData':selectedData,id:<?php echo $id1;?>},
 			success: function(result){
-    $("#lista").html(result);
-	$("#tab").hide();
+	
+    $(".lista").html(result);
+	$(".l1").hide();
 	
 
 }
