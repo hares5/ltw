@@ -1,79 +1,119 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     
 	<title>Lista elementi</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="liststyle.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="listastyle.css">
+
+	
+  
     
 
 
 </head>
 <body onload="assegnaEventHandlers();">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="top_bar">
+        <a class="navbar-brand" href="index.php">
+          <img src="immagini/TOGETHERLIST.png" alt="TogetherList Logo" height="50" width="70">
+        </a>
+        <ul class="ml-auto" >
+		<l1><a  href="gruppi.php"> <button class="btn btn-outline-secondary"><i class="fa fa-plus"></i>I tuoi gruppi</button></a></l1>
+        
+        <l1 class="dropdown-container"> 
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" id="dropdownbutton" aria-expanded="false"><i class="fa fa-user"></i> 
+        <?php
+        session_start();
+        $user=$_SESSION["username"];
+        $_SESSION["gruppo"]="";
+        echo $user; ?><span class="caret"></span></button>
+        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownbutton">
+            <l1><a class="dropdown-item" href="">Gestisci gruppi</a></l1>
+            <l1><a class="dropdown-item" href="logout.php"><i class="fa fa-sign-out"></i>Effettua logout</a></l1>
+        </ul>
+        </div>
+        </l1>
+        </ul>
+    </nav>
 <?php $id1 = $_GET['valore']; ?>
-<div class="col-md-9">
+<div class="col-md-10">
 <ul class="list-group">
     <form id="elementi" action="aggiungielementi.php?valore=<?php echo $id1;?>" method="POST">
             <l1>
-                <button class="btn btn-outline-danger" id="add_elem"><i class="fa fa-plus"></i> Aggiungi nuovo elemento</button>
-            <div class="mt-3" id="contenitoreInput" style="display:block ;">
+                <h4 id="text"> AGGIUNGI UN NUOVO ELEMENTO </h4>
+            <div class="mt-1" id="contenitoreInput" style="display:block ;">
                 <input type="text" class="form-control" name="elemento" id="inputTesto" placeholder="Inserisci del testo">
-</form>
-  <label for="categoria">Seleziona una opzione:</label>
+				<input type="text" class="form-control" name="quantita" id="inputquantita" placeholder="Inserisci la quantità">
+			<!--	<label for="categoria">Seleziona una opzione:</label> -->
   <select id="categoria" name="categoria">
     <option value="opzione1">Opzione 1</option>
     <option value="opzione2">Opzione 2</option>
     <option value="opzione3">Opzione 3</option>
   </select>
-  <input type="text" class="form-control" name="quantita" id="inputquantita" placeholder="Inserisci la quantità">
-
-
-                
-                <input type="submit" value="Invia">
-
-                
+</form>
+<input type="submit" value="Invia">
 </l1>
 
 </ul>
     </div>
-	<span class ="lista"></span>
-  <?php /*<span class ="lista">
-	<h1 id="list">Lista elementi</h1> 
-    <h2> <a href="gruppi.php" > TORNA AI TUOI GRUPPI</a></h2> 
-	<label for="sort-by">Ordina per:</label>
-	<select name="sort-by" id="sort-by" onchange="ordinaElementi();">
-
-  <option value="nome">nome</option>
-  <option value="categoria">categoria</option>
-  <option value="data">Data di aggiunta</option>
-</select>
+    <span class ="lista">
+	<h1 id="list">LISTA ELEMENTI</h1> 
+    
+	
 
 	<table>
 		<thead>
 			<tr>
+				<th>Nome Elemento</th>
+				<th>Quantita</th>
+				<th>Categoria</th>
 				
-				<select id="categoria2">
+				<select id="categoria2" name="categoria2">
   <option value="">Tutte le categorie</option>
   <option value="opzione1">Opzione 1</option>
   <option value="opzione2">Opzione 2</option>
   <option value="opzione3">Opzione 3</option>
 </select>
-</span>
+
 			</tr>
 		</thead>
 		
-		<tbody >
-    
-</tbody>*/?>
+		<tbody id="lista" >
+			<?php
+				// Connessione al database
+				$host = "localhost";
+				$user = "root";
+				$password = "";
+				$dbname = "sito_web";
+				$conn = mysqli_connect($host, $user, $password, $dbname);
+				if (!$conn) {
+					die("Connessione al database fallita: " . mysqli_connect_error());
+				}
 
-<div class="l1">
-	
-    <?php 
-	$sort_by = '';
-	include 'ordina_elementi.php'; 
-	?>
-</div>
+				// Query per recuperare la lista degli elementi
+				$sql = "SELECT * FROM lista_elementi WHERE id='$id1'";
+				$result = mysqli_query($conn, $sql);
+
+				// Ciclo sui risultati della query e stampo la lista degli elementi
+				while ($row = mysqli_fetch_assoc($result)) {
+					$elemento = $row["nome_elemento"];
+					$quantita = $row["quantita"];
+					$categoria=$row["categoria"];
+
+					echo "<tr>";
+					echo "<td class='c'>" . $elemento . "</td>";
+					echo "<td class='c'>" . $quantita . "</td>";
+					echo "<td class='c'>" . $categoria . "</td>";
+					echo "</tr>";
+				}
+
+				// Chiusura della connessione al database
+				mysqli_close($conn);
+			?>
+		</tbody>
 			
 	</table>
 			</span>
@@ -118,7 +158,7 @@
 			});
 		}); 
 		
-  $(document).ready(function() {
+		$(document).ready(function() {
     // Aggiungi un evento al menu a tendina categoria
     $('#categoria2').change(function() {
       var categoria = $(this).val(); // Ottieni il valore della categoria selezionata
@@ -131,38 +171,7 @@
         }
       });
     });
-	
-	$('#sort-by').change(function(){
-		var selectedData = $(this).val();
-		$.ajax({
-			type: "POST",
-			url: "ordina_elementi.php",
-			data: {'selectedData':selectedData,id:<?php echo $id1;?>},
-			success: function(result){
-	
-    $(".lista").html(result);
-	$(".l1").hide();
-	
-
-}
-		})
-	})
   });
-  function ordinaElementi() {
-	var selectedData = $(this).val();
-   // var sort_by = document.getElementById("sort-by").value;
-    $.ajax({
-        url: "ordina_elementi.php",
-        type: 'POST',
-        data: {'selectedData':selectedData,id:<?php echo $id1;?>},
-        success: function(data) {
-			$("#lista").append(data);
-          //  $('#lista').html(data);
-			alert(data);
-        }
-    });
-}
-
 
 
 </script>
@@ -173,3 +182,4 @@
 
 </body>
 </html>
+

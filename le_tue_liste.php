@@ -23,21 +23,7 @@
         $lista2=NULL;
         $lista3=NULL;
     ?>
-    <nav class="navbar navbar-expand-lg" id="top_bar">
-       
-        <ul>
-        <l1><button class="btn btn-outline-secondary" id="crea_lista"><i class="fa fa-plus"></i> Crea nuova lista</button>
-        <form class="mt-2" id="lista" style="display: none;" action="update_liste.php" method="POST">
-        <input type="text" class="form-control" id="inputLista" name="nomelista" placeholder="Inserisci del testo">
-        
-        <input type="submit" value="Invia">
-
-       
-    </form>
-    </div></l1>
-        
-        </ul>
-    </nav>
+   
     <!-- Contenitore principale -->
     </nav>
     <!-- Contenitore principale -->
@@ -64,7 +50,7 @@
         // echo ($result);
         $row = mysqli_fetch_assoc($result);
         $id1=$row['lista1'];?>
-       <li class="list-group-item"> <a href="lista.php?valore=<?php echo $id1;?>">
+       <li class="list-group-item" id="lis1"> <a href="lista.php?valore=<?php echo $id1;?>">
        
        <?php
          $servername = "localhost";
@@ -116,7 +102,7 @@
         // echo ($result);
         $row = mysqli_fetch_assoc($result);
         $id2=$row['lista2'];?>
-       <li class="list-group-item"><a href="lista.php?valore=<?php echo $id2;?>">
+       <li class="list-group-item" id="lis1"><a href="lista.php?valore=<?php echo $id2;?>">
        <?php
          $servername = "localhost";
          $username = "root";
@@ -163,7 +149,7 @@
         // echo ($result);
         $row = mysqli_fetch_assoc($result);
         $id3=$row['lista3'];?>
-       <li class="list-group-item"> <a href="lista.php?valore=<?php echo $id3;?>">
+       <li class="list-group-item" id="lis1"> <a href="lista.php?valore=<?php echo $id3;?>">
        <?php
          $servername = "localhost";
          $username = "root";
@@ -192,7 +178,19 @@
            
          ?>
          </a>
-       </li></li>
+       </li>
+       <ul>
+        <h4 id="crea_lista"><i class="fa fa-plus"></i> Crea nuova lista</h4>
+       <form class="mt-1" id="lista" style="display: block;" action="update_liste.php" method="POST">
+        <input type="text" class="form-control" id="inputLista" name="nomelista" placeholder="Inserisci del testo">
+        
+        <input type="submit" value="Invia" class="bottoncino">
+
+       
+    </form>
+    
+        
+        </ul></li>
        <!-- Aggiungi ulteriori elementi della lista a seconda dei gruppi dell'utente -->
      </ul>
  </div>
@@ -201,13 +199,13 @@
      <ul class="list-group">
      <form id="elementi" action="ae1.php?valore=<?php echo $id1;?>" method="POST">
             <l1>
-                <button class="btn btn-outline-danger" id="add_elem"><i class="fa fa-plus"></i> Aggiungi nuovo elemento</button>
+                <button class="btn btn-outline-dark" id="add_elem"><i class="fa fa-plus"></i> Aggiungi nuovo elemento</button>
             <div class="mt-3" id="contenitoreInput" style="display:block ;">
                 <input type="text" class="form-control" name="elemento" id="inputTesto" placeholder="Inserisci del testo">
                 
-                <input type="submit" value="Invia">
+                <input type="submit" value="Invia" class="bottoncino">
 </form>
-         <li class="list-group-item"><?php $servername = "localhost"; $username = "root"; $password = "";$dbname = "sito_web";
+         <li class="list-group-item" id="lis1"><?php $servername = "localhost"; $username = "root"; $password = "";$dbname = "sito_web";
      $sql2 = "SELECT * FROM lista_elementi WHERE id='$id1'";
     $result = mysqli_query($conn, $sql2);
     $row = mysqli_fetch_assoc($result);
@@ -221,7 +219,7 @@
           
     ?> </li>
 
-       <li class="list-group-item"><?php $servername = "localhost"; $username = "root"; $password = "";$dbname = "sito_web";
+       <li class="list-group-item" id="lis1"><?php $servername = "localhost"; $username = "root"; $password = "";$dbname = "sito_web";
      $sql2 = "SELECT * FROM lista_elementi WHERE id='$id1'";
     $result = mysqli_query($conn, $sql2);
     $row = mysqli_fetch_array($result);
@@ -237,7 +235,7 @@
             
     ?> </li>
 
-       <li class="list-group-item"><?php $servername = "localhost"; $username = "root"; $password = "";$dbname = "sito_web";
+       <li class="list-group-item" id="lis1"><?php $servername = "localhost"; $username = "root"; $password = "";$dbname = "sito_web";
      $sql2 = "SELECT * FROM lista_elementi WHERE id='$id1'";
     $result = mysqli_query($conn, $sql2);
     mysqli_data_seek($result, 2);
@@ -261,13 +259,13 @@
      <ul class="list-group">
      <form id="elementi" action="ae1.php?valore=<?php echo $id2;?>" method="POST">
             <l1>
-                <button class="btn btn-outline-danger" id="add_elem"><i class="fa fa-plus"></i> Aggiungi nuovo elemento</button>
+                <button class="btn btn-outline-dark" id="add_elem"><i class="fa fa-plus"></i> Aggiungi nuovo elemento</button>
             <div class="mt-3" id="contenitoreInput" style="display:block ;">
                 <input type="text" class="form-control" name="elemento" id="inputTesto" placeholder="Inserisci del testo">
                 
-                <input type="submit" value="Invia">
+                <input type="submit" value="Invia" class="bottoncino">
 </form>
-         <li class="list-group-item"><?php $servername = "localhost"; $username = "root"; $password = "";$dbname = "sito_web";
+         <li class="list-group-item" id="lis1"><?php $servername = "localhost"; $username = "root"; $password = "";$dbname = "sito_web";
      $sql2 = "SELECT * FROM lista_elementi WHERE id='$id2'";
     $result = mysqli_query($conn, $sql2);
     $row = mysqli_fetch_assoc($result);
@@ -281,7 +279,7 @@
           
     ?> </li>
 
-       <li class="list-group-item"><?php $servername = "localhost"; $username = "root"; $password = "";$dbname = "sito_web";
+       <li class="list-group-item" id="lis1"><?php $servername = "localhost"; $username = "root"; $password = "";$dbname = "sito_web";
      $sql2 = "SELECT * FROM lista_elementi WHERE id='$id2'";
     $result = mysqli_query($conn, $sql2);
     $row = mysqli_fetch_array($result);
@@ -297,7 +295,7 @@
             
     ?> </li>
 
-       <li class="list-group-item"><?php $servername = "localhost"; $username = "root"; $password = "";$dbname = "sito_web";
+       <li class="list-group-item" id="lis1"><?php $servername = "localhost"; $username = "root"; $password = "";$dbname = "sito_web";
      $sql2 = "SELECT * FROM lista_elementi WHERE id='$id2'";
     $result = mysqli_query($conn, $sql2);
     mysqli_data_seek($result, 2);
@@ -321,13 +319,13 @@
      <ul class="list-group">
      <form id="elementi" action="ae1.php?valore=<?php echo $id3;?>" method="POST">
             <l1>
-                <button class="btn btn-outline-danger" id="add_elem"><i class="fa fa-plus"></i> Aggiungi nuovo elemento</button>
+                <button class="btn btn-outline-dark" id="add_elem"><i class="fa fa-plus"></i> Aggiungi nuovo elemento</button>
             <div class="mt-3" id="contenitoreInput" style="display:block ;">
                 <input type="text" class="form-control" name="elemento" id="inputTesto" placeholder="Inserisci del testo">
                 
-                <input type="submit" value="Invia">
+                <input type="submit" value="Invia" class="bottoncino">
 </form>
-         <li class="list-group-item"><?php $servername = "localhost"; $username = "root"; $password = "";$dbname = "sito_web";
+         <li class="list-group-item" id="lis1"><?php $servername = "localhost"; $username = "root"; $password = "";$dbname = "sito_web";
      $sql2 = "SELECT * FROM lista_elementi WHERE id='$id3'";
     $result = mysqli_query($conn, $sql2);
     $row = mysqli_fetch_assoc($result);
@@ -341,7 +339,7 @@
           
     ?> </li>
 
-       <li class="list-group-item"><?php $servername = "localhost"; $username = "root"; $password = "";$dbname = "sito_web";
+       <li class="list-group-item" id="lis1"><?php $servername = "localhost"; $username = "root"; $password = "";$dbname = "sito_web";
      $sql2 = "SELECT * FROM lista_elementi WHERE id='$id3'";
     $result = mysqli_query($conn, $sql2);
     $row = mysqli_fetch_array($result);
@@ -357,7 +355,7 @@
             
     ?> </li>
 
-       <li class="list-group-item"><?php $servername = "localhost"; $username = "root"; $password = "";$dbname = "sito_web";
+       <li class="list-group-item" id="lis1"><?php $servername = "localhost"; $username = "root"; $password = "";$dbname = "sito_web";
      $sql2 = "SELECT * FROM lista_elementi WHERE id='$id3'";
     $result = mysqli_query($conn, $sql2);
     mysqli_data_seek($result, 2);
@@ -373,20 +371,19 @@
     }
 ?>
 </li>
+
        
        <!-- Aggiungi ulteriori elementi della lista a seconda delle liste dell'utente -->
      </ul>
    </div>
+  
  </div> <!-- Fine della riga della griglia -->
-
+ 
 </div> <!-- Fine del contenitore principale -->
 
 
 <div class="navbar navbar-fixed-bottom">
- <footer class="footer">
-     <h2>About TogetherList</h2>
-     <p>TogetherList is a social networking platform designed to connect people with similar interests and facilitate real-life interactions. Our mission is to bring people together and build stronger communities.</p>
- </footer>
+
 </div>
 <script>
      document.getElementById("add_elem").addEventListener('click', function ()  {

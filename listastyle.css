@@ -1,0 +1,159 @@
+/* Stile del corpo della pagina */
+@import url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
+body {
+  background-color: bisque;
+  font-family: Arial, sans-serif;
+  color: black;
+}
+
+/* Stile per la lista degli elementi */
+#list {
+  text-align: center;
+}
+
+table {
+ 
+  margin: 0 auto;
+  width: 70%;
+}
+
+th {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+}
+
+td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: bisque;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Stile per il pulsante Aggiungi nuovo elemento */
+#add_elem {
+  margin-bottom: 15px;
+  background-color: black;
+  color: white;
+  border: black;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+#add_elem:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+}
+
+/* Stile per il form di inserimento nuovo elemento */
+#contenitoreInput {
+  margin-top: 15px;
+}
+
+input[type=text], select {
+  width: 30%;
+  padding: 10px;
+  margin: 5px 0;
+  display: inline-block;
+  border: black;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+input[type=submit]:hover {
+  background-color: white;
+  color: black;
+}
+
+/* Stile per il link TORNA AI TUOI GRUPPI */
+a:link, a:visited {
+  color: bisque;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+  text-decoration: underline;
+}
+a{
+  color:bisque;
+}
+
+/* Stile per la barra di ricerca per categoria */
+#categoria2 {
+  width: 15%;
+  padding: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background-color: bisque;
+  border: 1px solid black;
+ 
+  
+ 
+ 
+}
+
+/* Stile per gli elementi completati */
+.c {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.c.completed {
+  text-decoration: line-through;
+}
+#la{
+  color:bisque !important;
+}
+.form-control{
+  background-color: bisque !important;
+  color: black !important;
+  border: 10px solid black 
+
+  
+  
+  
+
+}
+input[type=text] {
+  border: 1px solid black;
+}
+.btn-outline-secondary,
+.btn-outline-primary {
+  border-color: bisque;
+  color: bisque;
+}
+.dropdown-item {
+  color: bisque;
+}
+#categoria{
+  background-color: bisque;
+  color: black;
+  border: 1px solid black;
+}
+h1{
+  text-align: center;
+  font-family: 'Viga', sans-serif;
+  
+}
+  

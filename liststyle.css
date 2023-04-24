@@ -42,7 +42,7 @@ tr:hover {
     margin-bottom: 15px;
     background-color: black;
     color: white;
-    border: none;
+    border: black;
     border-radius: 5px;
     padding: 10px;
 }
@@ -63,7 +63,7 @@ input[type=text], select {
     padding: 10px;
     margin: 5px 0;
     display: inline-block;
-    border: none;
+    border: black;
     border-radius: 4px;
     box-sizing: border-box;
 }
@@ -85,13 +85,16 @@ input[type=submit]:hover {
 
 /* Stile per il link TORNA AI TUOI GRUPPI */
 a:link, a:visited {
-    color: black;
+    color: bisque;
     text-decoration: none;
 }
 
 a:hover {
     color: white;
     text-decoration: underline;
+}
+a{
+    color:bisque;
 }
 
 /* Stile per la barra di ricerca per categoria */
@@ -117,3 +120,29 @@ a:hover {
 .c.completed {
     text-decoration: line-through;
 }
+#la{
+    color:bisque !important;
+}
+.form-control{
+    background-color: bisque !important;
+    color: black !important;
+    border: black !important;
+    border-width: 15px;
+    
+    
+    
+
+}
+input[type=text] {
+    border: 1px solid black;
+  }
+  .btn-outline-secondary,
+  .btn-outline-primary {
+    border-color: bisque;
+    color: bisque;
+  }
+  .dropdown-item {
+    color: bisque;
+  }
+  
+  

@@ -1,0 +1,99 @@
+/* Colore di sfondo */
+/* Importa il font dalla Google Fonts API */
+@import url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Castoro+Titling&display=swap');
+/* Import del font Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+
+/* Applica il font a tutti gli elementi */
+
+body {
+    background-color: bisque;
+  }
+  
+  /* Colore del testo */
+  body,
+  .navbar-brand,
+  .list-group-item {
+    color: black;
+  }
+  
+  /* Pulsanti */
+  .btn-outline-secondary,
+  .btn-outline-primary {
+    border-color: bisque;
+    color: bisque;
+  }
+  
+  /* Dropdown menu */
+  .dropdown-item {
+    color: bisque;
+  }
+  
+  /* Link */
+  a {
+    color: black;
+  }
+  
+  /* Logo */
+  .navbar-brand img {
+    filter: invert(100%);
+  }
+  .list-group-item{
+    background-color: bisque;
+    color:black;
+    font-family: 'Poppins', sans-serif;
+    font-size:x-large;
+    
+  }
+  h1{
+    text-align: center;
+    font-family: 'Viga', sans-serif;
+    
+  }
+  .dropdown-menu{
+    background-color: black;
+  }
+  button.dropdown-toggle:hover {
+    background-color: DarkGrey !important;
+  }
+ #lis1{
+    font-family: 'Poppins', sans-serif;
+
+ }
+ #elementi{
+    font-family: 'Poppins', sans-serif;
+ }
+.bottoncino{
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    color:bisque;
+    font-weight: bold;
+    background-color: #3a3a3a;
+    cursor: pointer;
+    outline: none;
+}
+.form-control{
+    background-color: bisque;
+    color: black;
+    
+
+}
+.form-control:focus{
+    background-color: bisque;
+    color:black;
+    border-color: black;
+}
+h3{
+    font-family: 'Viga', sans-serif;
+}
+#inputLista{
+    text-align: center;
+    width: 100%;
+}
+#la{
+  color:bisque;
+}

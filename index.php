@@ -1,42 +1,45 @@
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
     <title>TogetherList</title>
-    <link rel="stylesheet" href="homestyle.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="home_style.css">
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="logo" href="home_page.php">
-        <img src="logo.png" alt="TogetherList Logo" height="50" width="70">
-      </a>
-      
+    <header>
+      <div class="logo">
+        <img src="immagini/TOGETHERLIST.png" alt="TogetherList Logo">
+      </div>
+      <nav>
         <ul>
-          <li><a href="login-page.php">Login</a></li>
-          <li><a href="signup.php">Sign Up</a></li>
-          <li><a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button></a></li>
+        <l1><a  href="login-page.php"> <button class="btn btn-outline-secondary"><i class="fa fa-plus"></i>Login</button></a></l1>
+        <l1><a  href="signup.php"> <button class="btn btn-outline-secondary"><i class="fa fa-plus"></i>Sign Up</button></a></l1>
         </ul>
-    </nav>
+      </nav>
+    </header>
     <main>
       <h1 class="titolo">TogetherList</h1>
       <ul class="features">
-        <li><a href="gruppi.php">Crea i tuoi gruppi di condivisione</a></li>
-        <li>Aggiungi i prodotti divisi in varie categorie</li>
-        <li>Organizza la tua spesa</li>
-        <li>Forza Inter Milan Merda</li>
+        <li>E invece no</li>
+        <li>Il mio sogno esaudirò</li>
+        <li>Vesuvio erutta</li>
+        <li>Tutta Napoli è distrutta</li>
       </ul>
       <section class="contact">
         <h2>Contact Us</h2>
         <p>Email: info@togetherlist.com</p>
       </section>
+    
+      
+        
+      
     </main>
-    <footer class="footer">
+    <footer>
       <section class="bio">
         <h2>About TogetherList</h2>
-        <p>TogetherList is a social networking platform designed to connect people with similar interests and facilitate real-life interactions. Our mission is to bring people together and build stronger communities.</p>
+        <p>Ma quali scontri e quali guai che non vi piacchiate mai milanista chiacchierone quanta fantasia che hai ti cercano e non ci sei piu alle otto e un quarto sei gia su con i tuoi vestiti neri bandito scemo della sud</p>
       </section>
     </footer>
   </body>

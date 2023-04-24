@@ -11,21 +11,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="gruppistyle.css">
+
    
        
-    
+     
     </script>         
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg" id="top_bar">
-        <a class="navbar-brand" href="home_page.html">
-          <img src="logo.png" alt="TogetherList Logo" height="50" width="70">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="top_bar">
+        <a class="navbar-brand" href="index.php">
+          <img src="immagini/TOGETHERLIST.png" alt="TogetherList Logo" height="50" width="70">
         </a>
         <ul class="ml-auto">
         <l1><a href="crea_gruppo.php"><button class="btn btn-outline-secondary"><i class="fa fa-plus"></i> Crea nuovo gruppo</button></a></l1>
         <l1><a  href="pagina_login_gruppo.php"> <button class="btn btn-outline-secondary"><i class="fa fa-plus"></i> Unisciti ad un gruppo</button></a></l1>
         <l1 class="dropdown-container"> 
-        <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" id="dropdownbutton" aria-expanded="false"><i class="fa fa-user"></i> 
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" id="dropdownbutton" aria-expanded="false"><i class="fa fa-user"></i> 
         <?php
         session_start();
         $user=$_SESSION["username"];
@@ -40,7 +42,7 @@
         </ul>
     </nav>
     <div class="container mt-5">
-        <h1>I tuoi gruppi</h1>
+        <h1>I TUOI GRUPPI</h1>
         <ul class="list-group mt-4">
         <?php
                     $servername = "localhost";
@@ -117,7 +119,7 @@
             //console.log("text:"+elem+';');
             if (elem != ''){
                 $(this).append("<i class='fa fa-trash-o float-right'></i>");
-                $(this).css("background", "lightgrey");
+                $(this).css("background", "white");
                 
                 $(".fa").click(function(){
 
@@ -135,7 +137,7 @@
             }
         };
         function mouseLeave(){
-            $(this).css("background", "white");
+            $(this).css("background", "bisque");
             $("i").remove();
         }
         
