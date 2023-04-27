@@ -5,8 +5,30 @@
 	<title>Lista elementi</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="liststyle.css">
-    
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="listastyle.css">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="top_bar">
+        <a class="navbar-brand" href="index.php">
+          <img src="immagini/TOGETHERLIST.png" alt="TogetherList Logo" height="50" width="70">
+        </a>
+        <ul class="ml-auto" >
+		<l1><a  href="gruppi.php"> <button class="btn btn-outline-secondary"><i class="fa fa-plus"></i>I tuoi gruppi</button></a></l1>
+        
+        <l1 class="dropdown-container"> 
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" id="dropdownbutton" aria-expanded="false"><i class="fa fa-user"></i> 
+        <?php
+        session_start();
+        $user=$_SESSION["username"];
+        
+        echo $user; ?><span class="caret"></span></button>
+        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownbutton">
+            <l1><a class="dropdown-item" href="">Gestisci gruppi</a></l1>
+            <l1><a class="dropdown-item" href="logout.php"><i class="fa fa-sign-out"></i>Effettua logout</a></l1>
+        </ul>
+       
+        </l1>
+        </ul>
+    </nav>
 
 
 </head>
@@ -39,13 +61,13 @@
     </div>
     <span class ="lista">
 	<h1 id="list">Lista elementi</h1> 
-    <h2> <a href="gruppi.php" > TORNA AI TUOI GRUPPI</a></h2> 
-	<label for="sort-by">Ordina per:</label>
+    
+<!--	<label for="sort-by">Ordina per:</label>
 <select name="sort-by" id="sort-by">
   <option value="nome">nome</option>
   <option value="categoria">categoria</option>
-  <option value="data">Data di aggiunta</option>
-</select>
+  <option value="data">Data di aggiunta</option> 
+</select> -->
 
 	<table>
 		<thead>

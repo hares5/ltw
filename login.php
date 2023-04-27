@@ -9,20 +9,21 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connessione al database fallita: " . mysqli_connect_error());
 }
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
 // Gestione del login+
-$email = mysqli_real_escape_string($conn, $_POST['email']);
-$password = mysqli_real_escape_string($conn, $_POST['password']);
+$email = $_POST['username'];
+$password = $_POST['password'];
 
     // Query per verificare l'esistenza dell'utente nel database
-    $sql = "SELECT * FROM utenti WHERE email = '$email'";
+    $sql = "SELECT * FROM utenti WHERE (email = '$email' OR username='$email')";
     
- 
+        
         $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_assoc($result);
     
+
         
         
         if (password_verify($password,$row["password"])) {
@@ -30,7 +31,7 @@ if (mysqli_num_rows($result) == 1) {
             session_start();
            $_SESSION['username'] = $row['username'];
 
-           header('Location: gruppi.php');
+           //header('Location: gruppi.php');
             echo("login effettuato");
             exit;
 
@@ -42,7 +43,7 @@ if (mysqli_num_rows($result) == 1) {
         // Utente non trovato
         echo("L'utente con questa email non è registrato.");
     }
-}
+
 
 // Chiusura della connessione al database
 mysqli_close($conn);

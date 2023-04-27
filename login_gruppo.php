@@ -7,12 +7,12 @@ $dbname = "sito_web";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
-    die("Connessione al database fallita: " . mysqli_connect_error());
+    //die("Connessione al database fallita: " . mysqli_connect_error());
 }
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
 // Gestione del login+
-$gruppo = mysqli_real_escape_string($conn, $_POST['gruppo']);
-$password = mysqli_real_escape_string($conn, $_POST['password_gruppo']);
+$gruppo = $_POST['gruppo'];
+$password = $_POST['password'];
 
     // Query per verificare l'esistenza dell'utente nel database
     $sql = "SELECT * FROM liste WHERE gruppo = '$gruppo'";
@@ -61,9 +61,9 @@ if (mysqli_num_rows($result) == 1) {
            $sql = "UPDATE gruppi SET gruppo1 = '$var' WHERE utente='$user'";
            
            if (mysqli_query($conn,$sql)) {
-               echo "Modifica eseguita con successo";
+              
            } else {
-               echo "Errore durante la modifica: " . $conn->error;
+               
            }
        
        
@@ -73,9 +73,9 @@ if (mysqli_num_rows($result) == 1) {
            $sql = "UPDATE gruppi SET gruppo2 = '$var' WHERE utente='$user'";
            
            if (mysqli_query($conn,$sql)) {
-               echo "Modifica eseguita con successo";
+              
            } else {
-               echo "Errore durante la modifica: " . $conn->error;
+               
            }
        
    
@@ -85,13 +85,13 @@ if (mysqli_num_rows($result) == 1) {
        $sql = "UPDATE gruppi SET gruppo3 = '$var' WHERE utente='$user'";
        
        if (mysqli_query($conn,$sql)) {
-           echo "Modifica eseguita con successo";
+           
        } else {
-           echo "Errore durante la modifica: " . $conn->error;
+           
        }
    }
    else{
-       die("numero massimo liste raggiunto");
+       //die("numero massimo liste raggiunto");
    }
    
 
@@ -100,27 +100,26 @@ if (mysqli_num_rows($result) == 1) {
 
            
            if (mysqli_query($conn,$sql1)) {
-               echo "Modifica eseguita con successo";
            } else {
-               echo "Errore durante la modifica: " . $conn->error;
+               
            }
    
    // Chiusura della connessione al database
    mysqli_close($conn);
 
-           header("Location: gruppi.php");
-            echo("login effettuato");
+           //header("Location: gruppi.php");
+            
             exit;
 
         } else {
             // Password errata
-             echo("La password inserita non è corretta.");
+             
         }
     } else {
         // Utente non trovato
-        echo("Gruppo non trovato");
+        
     }
-}
+
 
      
 ?>

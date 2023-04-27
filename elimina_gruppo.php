@@ -1,4 +1,5 @@
 <?php
+header("Location: gruppi.php");
     session_start();
     $username = $_SESSION["username"];
     $nome_gruppo = trim($_POST["gruppo"]);

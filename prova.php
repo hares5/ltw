@@ -6,7 +6,7 @@ $password = "";
 $dbname = "sito_web";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
-
+header("Location: index.php");
 // Controllo se la connessione al database è riuscita
 if (!$conn) {
     die("Connessione al database fallita: " . mysqli_connect_error());

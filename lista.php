@@ -9,16 +9,9 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="listastyle.css">
 
-	
-  
-    
-
-
-</head>
-<body onload="assegnaEventHandlers();">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="top_bar">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="top_bar">
         <a class="navbar-brand" href="index.php">
-          <img src="immagini/TOGETHERLIST.png" alt="TogetherList Logo" height="50" width="70">
+          <img src="immagini/TOGETHERLISTBISQUE2.png" alt="TogetherList Logo" height="50" width="70">
         </a>
         <ul class="ml-auto" >
 		<l1><a  href="gruppi.php"> <button class="btn btn-outline-secondary"><i class="fa fa-plus"></i>I tuoi gruppi</button></a></l1>
@@ -28,23 +21,30 @@
         <?php
         session_start();
         $user=$_SESSION["username"];
-        $_SESSION["gruppo"]="";
+        
         echo $user; ?><span class="caret"></span></button>
         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownbutton">
             <l1><a class="dropdown-item" href="">Gestisci gruppi</a></l1>
             <l1><a class="dropdown-item" href="logout.php"><i class="fa fa-sign-out"></i>Effettua logout</a></l1>
         </ul>
-        </div>
+       
         </l1>
         </ul>
     </nav>
+  
+    
+
+
+</head>
+<body onload="assegnaEventHandlers();">
+
 <?php $id1 = $_GET['valore']; ?>
-<div class="col-md-10">
+<div class="col-md-9">
 <ul class="list-group">
     <form id="elementi" action="aggiungielementi.php?valore=<?php echo $id1;?>" method="POST">
             <l1>
-                <h4 id="text"> AGGIUNGI UN NUOVO ELEMENTO </h4>
-            <div class="mt-1" id="contenitoreInput" style="display:block ;">
+                <h4 id="add_elem"> AGGIUNGI UN NUOVO ELEMENTO </h4>
+            <div class="mt-3" id="contenitoreInput" style="display:block ;">
                 <input type="text" class="form-control" name="elemento" id="inputTesto" placeholder="Inserisci del testo">
 				<input type="text" class="form-control" name="quantita" id="inputquantita" placeholder="Inserisci la quantità">
 			<!--	<label for="categoria">Seleziona una opzione:</label> -->
@@ -60,7 +60,7 @@
 </ul>
     </div>
     <span class ="lista">
-	<h1 id="list">LISTA ELEMENTI</h1> 
+	<h1>LISTA ELEMENTI</h1> 
     
 	
 
@@ -70,8 +70,8 @@
 				<th>Nome Elemento</th>
 				<th>Quantita</th>
 				<th>Categoria</th>
-				
-				<select id="categoria2" name="categoria2">
+				<label for="categoria2" id="label">Filtra per categoria:</label>
+				<select id="categoria2">
   <option value="">Tutte le categorie</option>
   <option value="opzione1">Opzione 1</option>
   <option value="opzione2">Opzione 2</option>
@@ -118,7 +118,7 @@
 	</table>
 			</span>
 			<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
+			<script>
         document.getElementById("add_elem").addEventListener('click', function ()  {
             var contenitoreInput = document.getElementById('contenitoreInput');
             if (contenitoreInput.style.display == 'block') {
@@ -158,7 +158,7 @@
 			});
 		}); 
 		
-		$(document).ready(function() {
+  $(document).ready(function() {
     // Aggiungi un evento al menu a tendina categoria
     $('#categoria2').change(function() {
       var categoria = $(this).val(); // Ottieni il valore della categoria selezionata
@@ -175,7 +175,6 @@
 
 
 </script>
-
 
   
     

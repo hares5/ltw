@@ -21,7 +21,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="top_bar">
         <a class="navbar-brand" href="index.php">
-          <img src="immagini/TOGETHERLIST.png" alt="TogetherList Logo" height="50" width="70">
+          <img src="immagini/TOGETHERLISTBISQUE2.png" alt="TogetherList Logo" height="50" width="70">
         </a>
         <ul class="ml-auto">
         <l1><a href="crea_gruppo.php"><button class="btn btn-outline-secondary"><i class="fa fa-plus"></i> Crea nuovo gruppo</button></a></l1>
@@ -99,7 +99,7 @@
                     $row = mysqli_fetch_assoc($result); 
                     $gruppo3=$row['gruppo3'];
                      ?>
-            <li class="list-group-item" id="3"  clicked="false"><a href="le_tue_liste3.php">
+            <li class="list-group-item" id="3"  clicked="false"><a id="lista3" href="le_tue_liste3.php">
             <?php
                    
                     echo $gruppo3; 
@@ -119,7 +119,15 @@
             //console.log("text:"+elem+';');
             if (elem != ''){
                 $(this).append("<i class='fa fa-trash-o float-right'></i>");
-                $(this).css("background", "white");
+                $(this).css("background", "black");
+                $(this).css("color", "bisque");
+                $(this).children().css("color", "bisque");
+                
+                
+
+                
+                
+                
                 
                 $(".fa").click(function(){
 
@@ -130,7 +138,10 @@
                         
                         success: function(result){
                             //alert(result)
-                            location.reload() // mostra l'output del codice PHP
+                            
+
+                            location.reload(),
+                            window.location.href = 'gruppi.php';// mostra l'output del codice PHP
                         }
                     });
                 });
@@ -139,6 +150,7 @@
         function mouseLeave(){
             $(this).css("background", "bisque");
             $("i").remove();
+            $(this).children().css("color", "black");
         }
         
     </script>

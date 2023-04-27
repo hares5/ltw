@@ -13,10 +13,12 @@ body {
     padding: 20px;
   }
   
-  .logo img {
-    max-width: 12%;
+  /*.logo{
+    max-width: 20%;
     height: auto;
-  }
+    size: 40%;
+    
+  }*/
   
   nav ul {
     list-style: none;
@@ -74,6 +76,8 @@ body {
     background-color: black;
     color: white;
     padding: 20px;
+    position:relative;
+    top:68px;
   }
   
   .bio h2 {

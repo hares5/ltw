@@ -6,10 +6,36 @@
     <meta charset="UTF-8">
     <title>TogetherList</title>
     
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.css">
+    <style>
+        /* Modifica del colore di sfondo della finestra di alert */
+        .swal2-popup {
+        background-color: bisque !important;
+        color: black !important;
+        border: 5px solid black !important;
+        }
+
+        /* Modifica del colore dei pulsanti della finestra di alert */
+        .swal2-confirm,
+        .swal2-cancel {
+        color: bisque !important;
+        background-color: black !important;
+        }
+        .swal2-input {
+            border: solid black !important;
+            border-width: 3px !important;
+        }
+        .swal2-input:focus {
+            outline-color: black !important;
+        }
+
+    </style>
     
     <script src="https://code.y.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="https://cdn.jsdelivjquerr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
@@ -50,7 +76,7 @@
         // echo ($result);
         $row = mysqli_fetch_assoc($result);
         $id1=$row['lista1'];?>
-       <li class="list-group-item" id="lis1"> <a href="lista.php?valore=<?php echo $id1;?>">
+       <li class="list-group-item2" id="lis1"> <a href="lista.php?valore=<?php echo $id1;?>">
        
        <?php
          $servername = "localhost";
@@ -102,7 +128,7 @@
         // echo ($result);
         $row = mysqli_fetch_assoc($result);
         $id2=$row['lista2'];?>
-       <li class="list-group-item" id="lis1"><a href="lista.php?valore=<?php echo $id2;?>">
+       <li class="list-group-item2" id="lis2"><a href="lista.php?valore=<?php echo $id2;?>">
        <?php
          $servername = "localhost";
          $username = "root";
@@ -149,7 +175,7 @@
         // echo ($result);
         $row = mysqli_fetch_assoc($result);
         $id3=$row['lista3'];?>
-       <li class="list-group-item" id="lis1"> <a href="lista.php?valore=<?php echo $id3;?>">
+       <li class="list-group-item2" id="lis3"> <a href="lista.php?valore=<?php echo $id3;?>">
        <?php
          $servername = "localhost";
          $username = "root";
@@ -199,7 +225,7 @@
      <ul class="list-group">
      <form id="elementi" action="ae1.php?valore=<?php echo $id1;?>" method="POST">
             <l1>
-                <button class="btn btn-outline-dark" id="add_elem"><i class="fa fa-plus"></i> Aggiungi nuovo elemento</button>
+                <button class="btn btn-outline-dark" id="add_elem"><i class="fa fa-plus"></i> Inserimento rapido</button>
             <div class="mt-3" id="contenitoreInput" style="display:block ;">
                 <input type="text" class="form-control" name="elemento" id="inputTesto" placeholder="Inserisci del testo">
                 
@@ -259,7 +285,7 @@
      <ul class="list-group">
      <form id="elementi" action="ae1.php?valore=<?php echo $id2;?>" method="POST">
             <l1>
-                <button class="btn btn-outline-dark" id="add_elem"><i class="fa fa-plus"></i> Aggiungi nuovo elemento</button>
+                <button class="btn btn-outline-dark" id="add_elem"><i class="fa fa-plus"></i> Inserimento rapido</button>
             <div class="mt-3" id="contenitoreInput" style="display:block ;">
                 <input type="text" class="form-control" name="elemento" id="inputTesto" placeholder="Inserisci del testo">
                 
@@ -319,7 +345,7 @@
      <ul class="list-group">
      <form id="elementi" action="ae1.php?valore=<?php echo $id3;?>" method="POST">
             <l1>
-                <button class="btn btn-outline-dark" id="add_elem"><i class="fa fa-plus"></i> Aggiungi nuovo elemento</button>
+                <button class="btn btn-outline-dark" id="add_elem"><i class="fa fa-plus"></i> Inserimento rapido</button>
             <div class="mt-3" id="contenitoreInput" style="display:block ;">
                 <input type="text" class="form-control" name="elemento" id="inputTesto" placeholder="Inserisci del testo">
                 
@@ -402,6 +428,83 @@
              lista.style.display = 'none';
          }
      });
+     $(".list-group-item2").hover(mouseEnter, mouseLeave);
+        function mouseEnter(){
+            var elem = $(this).text().trim();
+            //console.log("text:"+elem+';');
+            if (elem != ''){
+                $(this).append("<i class='fa fa-edit float-right'></i>");
+                $(this).css("background", "black");
+                $(this).css("color", "bisque");
+                $(this).children().css("color", "bisque");
+                
+                var list = $(this).attr('id').trim();
+                if (list == "lis1"){
+                    var id = <?php echo $id1;?>; 
+                }else if (list == "lis2"){
+                    var id = <?php echo $id2;?>; 
+                }else if (list == "lis3"){
+                    var id = <?php echo $id3;?>; 
+                }
+                $(".fa-edit").click(function(){
+                Swal.fire({
+                    title: 'Inserisci il nuovo nome della lista:',
+                    input: 'text',
+                    inputLabel: 'Nome lista:',
+                    confirmButtonText: 'Invia',
+                    showCancelButton: true,
+                    cancelButtonText: 'Annulla',
+                    inputValidator: (value) => {
+                    if (!value) {
+                        return 'Devi inserire il tuo nome!'
+                    }
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Crea un oggetto FormData e aggiungi il nome inserito dall'utente
+                        $.ajax({
+                        url: "rinomina_lista.php",
+                        type:'POST',
+                        data:{id:id,nome:result.value},
+                        // il nome del file PHP che vuoi eseguire
+                        
+                        success: function(result){
+                            // Se la chiamata AJAX è stata completata con successo, mostra una finestra popup con la risposta del server
+                           /* Swal.fire({
+                                title: 'Risposta del server:',
+                                text: response,
+                                confirmButtonText: 'OK'
+                            })*/
+                            //alert(result)
+                            location.reload() // mostra l'output del codice PHP
+                        },
+                        error: function() {
+                            // Se si è verificato un errore durante la chiamata AJAX, mostra una finestra popup di errore
+                            Swal.fire({
+                                title: 'Errore!',
+                                text: 'Si è verificato un errore durante la chiamata AJAX',
+                                icon: 'error',
+                                confirmButtonText: 'OK'
+                            })
+                        }
+                        
+                    });
+                    // Se l'utente fa clic sul pulsante "OK", mostra il valore inserito nella finestra popup
+                  
+                }
+                    })
+
+                
+                    
+                   
+                });
+            }
+        };
+        function mouseLeave(){
+            $(this).css("background", "bisque");
+            $("i").remove();
+            $(this).children().css("color", "black");
+        }
  </script>
 
     
