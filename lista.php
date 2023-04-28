@@ -49,9 +49,21 @@
 				<input type="text" class="form-control" name="quantita" id="inputquantita" placeholder="Inserisci la quantità">
 			<!--	<label for="categoria">Seleziona una opzione:</label> -->
   <select id="categoria" name="categoria">
-    <option value="opzione1">Opzione 1</option>
-    <option value="opzione2">Opzione 2</option>
-    <option value="opzione3">Opzione 3</option>
+  <option value="">Nessuna categoria</option>
+  <optgroup label="Cose da fare">
+    <option value="Casa">Casa</option>
+    <option value="Fuori casa">Fuori Casa</option>
+  </optgroup>
+  <optgroup label="Cose da comprare">
+    <option value="Frutta e verdura">Frutta e verdura</option>
+    <option value="Salumi e formaggi">Salumi e formaggi</option>
+	<option value="Prodotti da forno">Prodotti da forno</option>
+	<option value="Surgelati">Surgelati</option>
+	<option value="Prodotti confezionati">Prodotti confezionati</option>
+	<option value="Prodotti per la pulizia">Prodotti per la pulizia</option>
+	<option value="Prodotti per la casa">Prodotti per la casa</option>
+	<option value="Altro">Altro</option>
+  </optgroup>
   </select>
 </form>
 <input type="submit" value="Invia">
@@ -73,9 +85,20 @@
 				<label for="categoria2" id="label">Filtra per categoria:</label>
 				<select id="categoria2">
   <option value="">Tutte le categorie</option>
-  <option value="opzione1">Opzione 1</option>
-  <option value="opzione2">Opzione 2</option>
-  <option value="opzione3">Opzione 3</option>
+  <optgroup label="Cose da fare">
+    <option value="Casa">Casa</option>
+    <option value="Fuori casa">Fuori Casa</option>
+  </optgroup>
+  <optgroup label="Cose da comprare">
+    <option value="Frutta e verdura">Frutta e verdura</option>
+    <option value="Salumi e formaggi">Salumi e formaggi</option>
+	<option value="Prodotti da forno">Prodotti da forno</option>
+	<option value="Surgelati">Surgelati</option>
+	<option value="Prodotti confezionati">Prodotti confezionati</option>
+	<option value="Prodotti per la pulizia">Prodotti per la pulizia</option>
+	<option value="Prodotti per la casa">Prodotti per la casa</option>
+	<option value="Altro">Altro</option>
+  </optgroup>
 </select>
 
 			</tr>
